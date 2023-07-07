@@ -127,7 +127,9 @@ class LGRCalcucation:
             if self.y_valid_10[i] == self.result_valid[i]:
                 count_valid += 1
 
-        return count_train / len(self.y_train_10), count_valid / len(self.y_valid_10)
+        return count_train / len(self.y_train_10), count_valid / len(
+            self.y_valid_10
+        )
 
     def debug(self):
         return self.y_valid_10
@@ -142,7 +144,9 @@ def p(z_):
 
 
 # mnistのデータをロードする。ゼロから作るDLで使われている関数を流用した。
-(X_train, y_train), (X_valid, y_valid) = load_mnist(normalize=True, one_hot_label=True)
+(X_train, y_train), (X_valid, y_valid) = load_mnist(
+    normalize=True, one_hot_label=True
+)
 
 # 元のy_train, y_validはone-hotエンコーディングされたラベルなのでそれをスカラのラベルに戻る。
 # 元のラベルの0番目の要素が1なら1、非1なら0とラベル付けする。
@@ -178,8 +182,13 @@ for i in range(10):
     image = X_valid[j].reshape(28, 28)
     axes[i].imshow(image, cmap="gray")
     axes[i].set_title(f"prediction: {result_valid[j]}")
-    axes[i].text(7, image[i].shape[0] + 5, f"answer:{y_valid_10[j]}", color="black")
+    axes[i].text(
+        7, image[i].shape[0] + 5, f"answer:{y_valid_10[j]}", color="black"
+    )
     axes[i].axis("off")
 
 plt.tight_layout()
 plt.show()
+
+
+"Something Comforting"
