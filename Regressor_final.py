@@ -190,5 +190,3 @@ for i in range(10):
 plt.tight_layout()
 plt.show()
 
-
-"Something Comforting"
